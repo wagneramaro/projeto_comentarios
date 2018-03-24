@@ -7,6 +7,18 @@
 		exit;
 	}
 
+	if (isset($_POST['nome']) && empty($_POST['nome']) == false) {
+		$nome = $_POST['nome'];
+		$mensagem = $_POST['mensagem'];
+
+		/*ADD NO BANCO DE DADOS*/
+		$sql = $pdo->prepare("INSERT INTO mensagens set nome = :nome, msg = :msg, data_msg = NOW()");
+		$sql->bindValue(":nome", $nome);
+		$sql->bindValue(":msg", $mensagem);
+		$sql->execute();
+
+	}
+
 ?>
 
 <fieldset>
@@ -41,7 +53,9 @@
 
 		<?php
 		}
-	}
+	}else {
+		echo "Não há mensagens...";
+	};
 
 
 ?>

@@ -1,0 +1,22 @@
+SISTEMA SIMPLES DE COMENTÁRIOS USANDO PHP
+
+-- BANCO DE DADOS
+
+CREATE TABLE `mensagens` (
+  `id` int(11) NOT NULL,
+  `data_msg` datetime DEFAULT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `msg` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `mensagens`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `mensagens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+
+-- PARA A CONEXÃO COM SEU BANCO DE DADOS ALTERE A LINHA NO PHP 
+  $pdo = new PDO("mysql:dbname=projeto_comentarios;host=localhost","root","");
